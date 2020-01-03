@@ -87,8 +87,8 @@ public:
   virtual void write(uint8_t);
 #endif
   void command(uint8_t);
-  void init(bool fourbitmode = false);
-  void oled_init(bool fourbitmode = false);
+  void init();
+  void oled_init();
 
 ////compatibility API function aliases
 void blink_on();						// alias for blink()
@@ -112,7 +112,7 @@ void draw_vertical_graph(uint8_t row, uint8_t column, uint8_t len,  uint8_t pixe
 	 
 
 private:
-  void init_priv(bool);
+  void init_priv();
   void send(uint8_t, uint8_t);
   void write4bits(uint16_t);
   void write8bits(uint16_t);

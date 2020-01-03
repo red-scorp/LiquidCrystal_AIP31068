@@ -49,19 +49,18 @@ LiquidCrystal_AIP31068_I2C::LiquidCrystal_AIP31068_I2C(uint8_t lcd_Addr,uint8_t 
 	_backlightval = LCD_NOBACKLIGHT;
 }
 
-void LiquidCrystal_AIP31068_I2C::oled_init(bool fourbitmode) {
+void LiquidCrystal_AIP31068_I2C::oled_init() {
 	_oled = true;
-	init_priv(fourbitmode);
+	init_priv();
 }
 
-void LiquidCrystal_AIP31068_I2C::init(bool fourbitmode) {
-	init_priv(fourbitmode);
+void LiquidCrystal_AIP31068_I2C::init() {
+	init_priv();
 }
 
-void LiquidCrystal_AIP31068_I2C::init_priv(bool fourbitmode) {
+void LiquidCrystal_AIP31068_I2C::init_priv() {
 	Wire.begin();
-	_displayfunction = LCD_1LINE | LCD_5x8DOTS;
-	_displayfunction |= fourbitmode? LCD_4BITMODE: LCD_8BITMODE;
+	_displayfunction = LCD_1LINE | LCD_5x8DOTS | LCD_8BITMODE;
 	begin(_cols, _rows);  
 }
 
@@ -81,40 +80,19 @@ void LiquidCrystal_AIP31068_I2C::begin(uint8_t cols, uint8_t lines, uint8_t dots
 	// before sending commands. Arduino can turn on way before 4.5V so we'll wait 50
 	delayMicroseconds(50000); 
 
-	//put the LCD into 4 bit or 8 bit mode
-	if (! (_displayfunction & LCD_8BITMODE)) {
-		// this is according to the hitachi HD44780 datasheet
-		// figure 24, pg 46
+	// this is according to the hitachi HD44780 datasheet
+	// page 45 figure 23
 
-		// we start in 8bit mode, try to set 4 bit mode
-		write4bits(0x03);
-		delayMicroseconds(4500); // wait min 4.1ms
+	// Send function set command sequence
+	command(LCD_FUNCTIONSET | _displayfunction);
+	delayMicroseconds(4500);  // wait more than 4.1ms
 
-		// second try
-		write4bits(0x03);
-		delayMicroseconds(4500); // wait min 4.1ms
-    
-		// third go!
-		write4bits(0x03); 
-		delayMicroseconds(150);
+	// second try
+	command(LCD_FUNCTIONSET | _displayfunction);
+	delayMicroseconds(150);
 
-		// finally, set to 4-bit interface
-		write4bits(0x02); 
-	} else {
-		// this is according to the hitachi HD44780 datasheet
-		// page 45 figure 23
-
-		// Send function set command sequence
-		command(LCD_FUNCTIONSET | _displayfunction);
-		delayMicroseconds(4500);  // wait more than 4.1ms
-
-		// second try
-		command(LCD_FUNCTIONSET | _displayfunction);
-		delayMicroseconds(150);
-
-		// third go
-		command(LCD_FUNCTIONSET | _displayfunction);
-	}
+	// third go
+	command(LCD_FUNCTIONSET | _displayfunction);
 
 	// finally, set # lines, font size, etc.
 	command(LCD_FUNCTIONSET | _displayfunction);  
