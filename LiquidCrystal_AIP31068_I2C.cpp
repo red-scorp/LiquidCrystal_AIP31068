@@ -23,7 +23,6 @@ inline void LiquidCrystal_AIP31068_I2C::write(uint8_t value) {
 }
 
 #endif
-#include "Wire.h"
 
 // When the display powers up, it is configured as follows:
 //
