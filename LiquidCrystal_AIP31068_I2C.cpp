@@ -2,6 +2,8 @@
 
 #include "LiquidCrystal_AIP31068_I2C.h"
 #include <inttypes.h>
+#include <Wire.h>
+
 #if defined(ARDUINO) && ARDUINO >= 100
 
 #include "Arduino.h"
