@@ -3,7 +3,7 @@
 //Library version:1.1
 #include <LiquidCrystal_AIP31068_I2C.h>
 
-LiquidCrystal_AIP31068_I2C lcd(0x3E,20,4);  // set the LCD address to 0x3E for a 16 chars and 2 line display
+LiquidCrystal_AIP31068_I2C lcd(0x3E,20,4);  // set the LCD address to 0x3E for a 20 chars and 4 line display
 
 void setup()
 {
