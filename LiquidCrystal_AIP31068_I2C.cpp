@@ -241,12 +241,7 @@ inline void LiquidCrystal_AIP31068_I2C::command(uint8_t value) {
 // write either command or data
 void LiquidCrystal_AIP31068_I2C::send(uint8_t value, uint8_t mode) {
 	uint16_t rs = mode != 0? Rs << 8: 0;
-	if (_displayfunction & LCD_8BITMODE) {
-		write8bits(rs | value); 
-	} else {
-		write4bits(rs | value >> 4);
-		write4bits(rs | value);
-	}
+	write8bits(rs | value); 
 }
 
 void LiquidCrystal_AIP31068_I2C::write4bits(uint16_t value) {
