@@ -6,13 +6,18 @@ Simple substitute for LiquidCrystal and LiquidCrystal_I2C to speak with LCD disp
 
 ## Author
 
-Andriy Golovnya
+Author: Andriy Golovnya
 Based on work of great people who wrote LiquidCrystal and LiquidCrystal_I2C.
 
 ## Progress
- - Works: I2C access in 8-bit mode
- - TODO: SPI access mode
+
+ - Works: I2C access in 8-bit mode (PSB pin set HIGH)
+ - Works: SPI access in 8-bit mode (PSB pin set LOW)
  - Not supported by the AiP31068 chip: 4-bit mode
+
+## Dependencies
+
+This library requires [SoftSPIB](https://github.com/red-scorp/SoftSPIB) - Software SPI library with 9-bit transfer support.
 
 ## Additional information
 
