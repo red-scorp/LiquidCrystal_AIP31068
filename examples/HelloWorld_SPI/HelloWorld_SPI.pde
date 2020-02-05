@@ -1,6 +1,6 @@
 //YWROBOT
 //Compatible with the Arduino IDE 1.0
-//Library version:1.1
+//Library version:1.0
 #include <LiquidCrystal_AIP31068_SPI.h>
 
 LiquidCrystal_AIP31068_SPI lcd(2,20,4);  // set the LCD cs pin to 3 for a 20 chars and 4 line display

@@ -3,7 +3,7 @@
  * an attached LCD.
  * YWROBOT
  *Compatible with the Arduino IDE 1.0
- *Library version:1.1
+ *Library version:1.0
  */
 #include <Wire.h> 
 #include <LiquidCrystal_AIP31068_I2C.h>
