@@ -50,7 +50,6 @@ LiquidCrystal_AIP31068_SPI::LiquidCrystal_AIP31068_SPI(uint8_t ss_pin,uint8_t lc
 	_miso = miso_pin;
 	_cols = lcd_cols;
 	_rows = lcd_rows;
-	_backlightval = LCD_NOBACKLIGHT;
 }
 
 LiquidCrystal_AIP31068_SPI::~LiquidCrystal_AIP31068_SPI() {
@@ -236,18 +235,6 @@ void LiquidCrystal_AIP31068_SPI::createChar(uint8_t location, const char *charma
 	}
 }
 
-// Turn the (optional) backlight off/on
-void LiquidCrystal_AIP31068_SPI::noBacklight(void) {
-	_backlightval=LCD_NOBACKLIGHT;
-	controllerWrite(0);
-}
-
-void LiquidCrystal_AIP31068_SPI::backlight(void) {
-	_backlightval=LCD_BACKLIGHT;
-	controllerWrite(0);
-}
-
-
 
 /*********** mid level commands, for sending data/cmds */
 
@@ -302,14 +289,6 @@ void LiquidCrystal_AIP31068_SPI::blink_off(){
 
 void LiquidCrystal_AIP31068_SPI::load_custom_character(uint8_t char_num, uint8_t *rows){
 		createChar(char_num, rows);
-}
-
-void LiquidCrystal_AIP31068_SPI::setBacklight(uint8_t new_val){
-	if(new_val){
-		backlight();		// turn backlight on
-	}else{
-		noBacklight();		// turn backlight off
-	}
 }
 
 void LiquidCrystal_AIP31068_SPI::printstr(const char c[]){

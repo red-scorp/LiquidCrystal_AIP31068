@@ -44,10 +44,6 @@
 #define LCD_5x10DOTS 0x04
 #define LCD_5x8DOTS 0x00
 
-// flags for backlight control
-#define LCD_BACKLIGHT 0x08
-#define LCD_NOBACKLIGHT 0x00
-
 #define En B00000000  // Enable bit
 #define Rw B00000000  // Read/Write bit
 #define Rs B00000001  // Register select bit
@@ -77,8 +73,6 @@ public:
   void rightToLeft();
   void shiftIncrement();
   void shiftDecrement();
-  void noBacklight();
-  void backlight();
   void autoscroll();
   void noAutoscroll(); 
   void createChar(uint8_t, uint8_t[]);
@@ -100,7 +94,6 @@ void blink_on();						// alias for blink()
 void blink_off();       					// alias for noBlink()
 void cursor_on();      	 					// alias for cursor()
 void cursor_off();      					// alias for noCursor()
-void setBacklight(uint8_t new_val);				// alias for backlight() and nobacklight()
 void load_custom_character(uint8_t char_num, uint8_t *rows);	// alias for createChar()
 void printstr(const char[]);
 
@@ -134,7 +127,6 @@ private:
   bool _oled = false;
   uint8_t _cols;
   uint8_t _rows;
-  uint8_t _backlightval;
   void *_softspi;
 };
 

@@ -47,7 +47,6 @@ LiquidCrystal_AIP31068_I2C::LiquidCrystal_AIP31068_I2C(uint8_t lcd_Addr,uint8_t 
 	_Addr = lcd_Addr;
 	_cols = lcd_cols;
 	_rows = lcd_rows;
-	_backlightval = LCD_NOBACKLIGHT;
 }
 
 void LiquidCrystal_AIP31068_I2C::oled_init() {
@@ -216,18 +215,6 @@ void LiquidCrystal_AIP31068_I2C::createChar(uint8_t location, const char *charma
 	}
 }
 
-// Turn the (optional) backlight off/on
-void LiquidCrystal_AIP31068_I2C::noBacklight(void) {
-	_backlightval=LCD_NOBACKLIGHT;
-	controllerWrite(0);
-}
-
-void LiquidCrystal_AIP31068_I2C::backlight(void) {
-	_backlightval=LCD_BACKLIGHT;
-	controllerWrite(0);
-}
-
-
 
 /*********** mid level commands, for sending data/cmds */
 
@@ -279,14 +266,6 @@ void LiquidCrystal_AIP31068_I2C::blink_off(){
 
 void LiquidCrystal_AIP31068_I2C::load_custom_character(uint8_t char_num, uint8_t *rows){
 		createChar(char_num, rows);
-}
-
-void LiquidCrystal_AIP31068_I2C::setBacklight(uint8_t new_val){
-	if(new_val){
-		backlight();		// turn backlight on
-	}else{
-		noBacklight();		// turn backlight off
-	}
 }
 
 void LiquidCrystal_AIP31068_I2C::printstr(const char c[]){

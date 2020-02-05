@@ -24,7 +24,6 @@ LiquidCrystal_AIP31068_I2C lcd(0x3E,20,4);  // set the LCD address to 0x3E for a
 void setup()
 {
   lcd.init();                      // initialize the lcd 
-  lcd.backlight();
   
   lcd.createChar(0, bell);
   lcd.createChar(1, note);

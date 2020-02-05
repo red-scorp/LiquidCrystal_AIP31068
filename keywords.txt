@@ -28,8 +28,6 @@ leftToRight	KEYWORD2
 rightToLeft	KEYWORD2
 shiftIncrement	KEYWORD2
 shiftDecrement	KEYWORD2
-noBacklight	KEYWORD2
-backlight	KEYWORD2
 autoscroll	KEYWORD2
 noAutoscroll	KEYWORD2
 createChar	KEYWORD2
@@ -39,7 +37,6 @@ blink_on	KEYWORD2
 blink_off	KEYWORD2
 cursor_on	KEYWORD2
 cursor_off	KEYWORD2
-setBacklight	KEYWORD2
 load_custom_character	KEYWORD2
 printstr	KEYWORD2
 ###########################################
