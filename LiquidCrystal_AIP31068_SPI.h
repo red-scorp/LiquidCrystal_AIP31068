@@ -4,7 +4,8 @@
 
 #include <inttypes.h>
 #include <pins_arduino.h>
-#include "Print.h" 
+#include <Print.h>
+#include <Arduino.h>
 
 // commands
 #define LCD_CLEARDISPLAY 0x01
