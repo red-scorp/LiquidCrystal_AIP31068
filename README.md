@@ -22,3 +22,10 @@ This library requires [SoftSPIB](https://github.com/red-scorp/SoftSPIB) - Softwa
 ## Additional information
 
 [PDF](http://www.newhavendisplay.com/appnotes/datasheets/LCDs/AiP31068.pdf): AiP31068 40 SEG / 16 COM Driver & Controller for Dot Matrix LCD/2 or 3 Line Serial Data Interface
+
+## How to help
+
+Your contributions as code, resources or finances are welcome!
+Please contact me directly over e-mail andriy.golovnya@gmail.com or over [GitHub profile](https://github.com/red-scorp).
+Link for [Paypal donations](http://paypal.me/redscorp) and [Ko-Fi donations](http://ko-fi.com/redscorp), which are always welcome.
+Thanks in advance!
