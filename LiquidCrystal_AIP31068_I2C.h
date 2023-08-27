@@ -44,9 +44,9 @@
 #define LCD_5x10DOTS 0x04
 #define LCD_5x8DOTS 0x00
 
-#define En B00000000  // Enable bit
-#define Rw B00000000  // Read/Write bit
-#define Rs B01000000  // Register select bit
+#define En 0b00000000  // Enable bit
+#define Rw 0b00000000  // Read/Write bit
+#define Rs 0b01000000  // Register select bit
 
 class LiquidCrystal_AIP31068_I2C : public Print {
 public:

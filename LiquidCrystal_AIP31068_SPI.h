@@ -45,9 +45,9 @@
 #define LCD_5x10DOTS 0x04
 #define LCD_5x8DOTS 0x00
 
-#define En B00000000  // Enable bit
-#define Rw B00000000  // Read/Write bit
-#define Rs B00000001  // Register select bit
+#define En 0b00000000  // Enable bit
+#define Rw 0b00000000  // Read/Write bit
+#define Rs 0b00000001  // Register select bit
 
 //#define MOSI 11
 //#define MISO 12
